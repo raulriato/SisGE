@@ -1,0 +1,12 @@
+node_modules
+.vscode
+*.js
+*.json
+README.md
+.env*
+prisma/**/*
+docker-compose*
+Dockerfile*
+nginx.conf
+build/*
+config/**/*
