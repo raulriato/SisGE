@@ -2,19 +2,22 @@ import styled from 'styled-components';
 import logo from '@/assets/logo.svg';
 import { Button, Form, Input } from '@/styles';
 import { Link } from 'react-router-dom';
+import { useDisable } from '@/hooks';
 
 export function SignUp() {
+  const { disabled, disable } = useDisable();
   return (
     <Container>
       <LeftBlock>
         <img src={logo} alt="loading..." />
       </LeftBlock>
       <RightBlock>
+        <img src={logo} alt="loading..." />
         <Form onSubmit={e => e.preventDefault()}>
-          <Input placeholder='Nome' />
-          <Input placeholder='E-mail' />
-          <Input placeholder='Senha' />
-          <Button>Entrar</Button>
+          <Input placeholder='Nome' disabled={disabled}/>
+          <Input placeholder='E-mail' disabled={disabled}/>
+          <Input placeholder='Senha' disabled={disabled}/>
+          <Button disabled={disabled} onClick={() => disable()} >Entrar</Button>
         </Form>
         <Link to='/signin'>Já tem cadastro? Faça login!</Link>
       </RightBlock>
@@ -27,6 +30,12 @@ const Container = styled.div`
   width: 100%;
   height: 100%;
   display: flex;
+
+  @media (max-width: 900px) {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 `;
 
 const LeftBlock = styled.div`
@@ -39,6 +48,10 @@ const LeftBlock = styled.div`
 
   img {
     width: 100%;
+  }
+
+  @media (max-width: 900px) {
+    display: none;
   }
 `;
 
@@ -55,5 +68,20 @@ const RightBlock = styled.div`
     font-size: 20px;
     text-decoration: underline;
     color: #1591ff;
+  }
+
+  img {
+    display: none;
+  }
+
+  @media (max-width: 900px) {
+    width: 100%;
+
+    img {
+      display: initial;
+      width: 30%;
+      min-width: 250px;
+      margin-bottom: 50px;
+    }
   }
 `;
