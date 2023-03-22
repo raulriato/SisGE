@@ -27,11 +27,13 @@ const Container = styled.button`
   height: 35px;
   border: none;
   border-radius: 5px;
-  background: linear-gradient(135deg, #5ddfe6 0%, #004aad 100%);
+  /* background: linear-gradient(135deg, #5ddfe6 0%, #004aad 100%); */
+  background-color: #11a1ff;
   color: #fff;
   box-shadow: 0 3px 4px #333;
   cursor: pointer;
   font-size: 20px;
+  transition: all 0.1s ease;
 
   &:active {
     box-shadow: 0 1px 4px #333;
@@ -39,7 +41,8 @@ const Container = styled.button`
   }
 
   &:hover {
-    background: linear-gradient(135deg, #3ddfe6 0%, #002aad 100%);
+    /* background: linear-gradient(135deg, #3ddfe6 0%, #002aad 100%); */
+    background-color: #1171ff;
   }
 
   ${({ disabled }) => disabled && `

@@ -1,11 +1,19 @@
 import styled from 'styled-components';
 import logo from '@/assets/logo.svg';
-import { Button, Form, Input } from '@/styles';
-import { Link } from 'react-router-dom';
+import { Button, AuthForm, Input } from '@/styles';
+import { Link, useNavigate } from 'react-router-dom';
 import { useDisable } from '@/hooks';
+import { FormEvent } from 'react';
 
 export function SignIn() {
   const { disabled, disable } = useDisable();
+  const navigate = useNavigate();
+
+  function handleSubmit(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    disable();
+    navigate('/');
+  }
   return (
     <Container>
       <LeftBlock>
@@ -13,13 +21,13 @@ export function SignIn() {
       </LeftBlock>
       <RightBlock>
         <img src={logo} alt="loading..." />
-        <Form onSubmit={e => e.preventDefault()}>
+        <AuthForm onSubmit={handleSubmit}>
           <Input placeholder='E-mail' disabled={disabled}/>
           <Input placeholder='Senha' disabled={disabled}/>
-          <Button onClick={() => disable()} disabled={disabled}>
+          <Button disabled={disabled}>
             Entrar
           </Button>
-        </Form>
+        </AuthForm>
         <Link to='/signup'>Não tem uma conta? Cadastre-se!</Link>
       </RightBlock>
 

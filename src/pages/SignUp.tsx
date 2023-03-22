@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import logo from '@/assets/logo.svg';
-import { Button, Form, Input } from '@/styles';
+import { Button, AuthForm, Input } from '@/styles';
 import { Link } from 'react-router-dom';
 import { useDisable } from '@/hooks';
 
@@ -13,12 +13,12 @@ export function SignUp() {
       </LeftBlock>
       <RightBlock>
         <img src={logo} alt="loading..." />
-        <Form onSubmit={e => e.preventDefault()}>
+        <AuthForm onSubmit={e => e.preventDefault()}>
           <Input placeholder='Nome' disabled={disabled}/>
           <Input placeholder='E-mail' disabled={disabled}/>
           <Input placeholder='Senha' disabled={disabled}/>
           <Button disabled={disabled} onClick={() => disable()} >Entrar</Button>
-        </Form>
+        </AuthForm>
         <Link to='/signin'>Já tem cadastro? Faça login!</Link>
       </RightBlock>
 

@@ -1,9 +1,13 @@
 import styled from 'styled-components';
 
-export const Input = styled.input`
+type Props = {
+  file?: boolean
+}
+
+export const Input = styled.input<Props>`
   border: none;
   border-bottom: 1px solid #555;
-  width: 90%;
+  width: 100%;
   height: 3rem;
   background-color: #ddd;
   margin-bottom: 10px;
@@ -39,5 +43,10 @@ export const Input = styled.input`
     &::placeholder {
       color: #aaa;
     }
+  `}
+
+  ${({ file }) => file && `
+    width: 100%;
+    display: none;
   `}
 `;
