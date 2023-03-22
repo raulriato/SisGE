@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import { Input } from '@/styles';
-import { useDisable } from '@/hooks';
 import { InputHTMLAttributes } from 'react';
 
 type Props = InputHTMLAttributes<HTMLInputElement> & {

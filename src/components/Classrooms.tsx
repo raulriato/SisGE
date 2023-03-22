@@ -134,7 +134,6 @@ const Container = styled.div<StyledProps>`
   height: 100%;
   position: relative;
   display: flex;
-  flex-direction: column;
   ${({ creating }) => creating ? `
     flex-direction: column;
     align-items: center;

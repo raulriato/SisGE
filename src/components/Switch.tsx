@@ -10,12 +10,13 @@ type Props = InputHTMLAttributes<HTMLInputElement> & {
 export function Switch({ children, checked, setChecked, creating }: Props) {
 
   function handleChange(e: React.FormEvent<HTMLInputElement>) {
-    setChecked(e.target.checked);
+    const target = e.target as HTMLInputElement;
+    setChecked(target.checked);
   }
   return (
     <Container>
       <Label creating={creating as boolean}>
-        <input type='checkbox' checked={checked} onChange={handleChange}/>
+        <input type='checkbox' checked={checked as boolean} onChange={handleChange}/>
         <Span creating={creating as boolean}/>
       </Label>
       <p>{children}</p>
