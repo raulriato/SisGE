@@ -30,7 +30,7 @@ type StyledProps = {
 
 const Container = styled.div<StyledProps>`
   width: ${({ small }) => small ? '48%' : '100%'};
-  aspect-ratio: ${({ small }) => small ? '2.5/1' : '3/1'};
+  aspect-ratio: ${({ small }) => small ? '2.5/1' : '4/1'};
   color: #aaa;
   border:2px dashed;
   border-radius: 20px;
